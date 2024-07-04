@@ -2,9 +2,9 @@
 
 require "test_helper"
 
-class Jekyll::TestHello < Minitest::Test
+class Jekyll::TestCover < Minitest::Test
   def test_that_it_has_a_version_number
-    refute_nil ::Jekyll::Hello::VERSION
+    refute_nil ::Jekyll::Cover::VERSION
   end
 
   def test_it_does_something_useful

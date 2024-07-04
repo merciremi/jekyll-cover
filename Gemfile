@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in jekyll-hello.gemspec
+# Specify your gem's dependencies in jekyll-cover.gemspec
 gemspec
 
 gem "rake", "~> 13.0"

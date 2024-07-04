@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 require 'rmagick'
-require 'pry'
 
 module Jekyll
-  module Hello
+  module Cover
     class CoverImage
       attr_reader :folder_handler, :matches, :file, :path
 
@@ -40,8 +39,6 @@ module Jekyll
         end
 
         metrics = image_text.get_type_metrics(wrapped_title)
-
-        # binding.pry
 
         OpenStruct.new(lower_position: metrics.height + metrics.bounds.x2 + metrics.ascent)
       end
@@ -87,8 +84,6 @@ module Jekyll
 
         new_content = file.insert(cover_image_position + 'cover_image:'.length, " \"/media/#{matches.year}/#{matches.month}/#{formatted_slug}.png\"")
 
-        # Improvement: how do I access the path, when I only have the result of File.read?
-        # new param or is there a cleaner version?
         File.open(path, 'w') { |file| file.write(new_content) }
       end
 

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jekyll-hello (0.1.0)
+    jekyll-cover (0.1.0)
       jekyll
       pry-byebug
       rmagick
@@ -93,7 +93,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
-  jekyll-hello!
+  jekyll-cover!
   minitest (~> 5.0)
   pry
   rake (~> 13.0)

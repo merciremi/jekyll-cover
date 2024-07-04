@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Jekyll
-  module Hello
+  module Cover
     class Matches
       PATTERNS = [
         /^(title:\s?)(.*)$/,
