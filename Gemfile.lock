@@ -3,6 +3,7 @@ PATH
   specs:
     jekyll-hello (0.1.0)
       jekyll
+      pry-byebug
       rmagick
 
 GEM
@@ -94,7 +95,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll-hello!
   minitest (~> 5.0)
-  pry-byebug
+  pry
   rake (~> 13.0)
   rmagick
 

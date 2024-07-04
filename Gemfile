@@ -12,5 +12,5 @@ gem "minitest", "~> 5.0"
 gem 'rmagick'
 
 group :development do
-  gem 'pry-byebug'
+  gem 'pry'
 end

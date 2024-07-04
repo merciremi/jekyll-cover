@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require 'jekyll'
-require 'rmagick'
 
 module Jekyll
   module Commands
@@ -24,7 +23,6 @@ module Jekyll
               folder_handler = Jekyll::Hello::FolderHandler.new(site, matches).find_or_initialize_folder
 
               image = Jekyll::Hello::CoverImage.new(folder_handler, matches, post_file, path).create
-
               image.add_slug_to_file!
             end
           end
