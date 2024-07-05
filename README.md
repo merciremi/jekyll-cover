@@ -1,31 +1,22 @@
 # Jekyll::Cover
 
-TODO: Delete this and the text below, and describe your gem
+👋 Howdy! Welcome to the `v 0.1.0` of `Jekyll::Cover`, a custom command to build `og:image` for new posts through the command line.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/jekyll/cover`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Why?
 
-## Installation
+I did not want to open Figma anymore, and decided that runing something like `jekyll cover --path /path/to/my/post/` would be faster! And building the gem would be more fun.
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+## How
 
-Install the gem and add to the application's Gemfile by executing:
+This gem does a few things: 
+- takes a path as argument,
+- parse the relevant post for necessary information such as a title, a date, etc...
+- build an image from scratch through a mix of instructions and images w/ `rmagick`,
+- build the folder structure if need be to store the image,
+- add the path of the new image to the post.
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+## Disclaimer
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+⚠️ I built this gem is for my personal use and on my personal time, hence it's **very crude, untested**, and **only works for the quirks of my own website**. 
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/jekyll-cover.
+I'll probably make it more usable for others in the future, but for now, it's mostly a personal proof of concept.
