@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'jekyll'
 
 module Jekyll
@@ -16,13 +17,13 @@ module Jekyll
 
               site = Jekyll::Cover::Website.new.site
 
-              post_file = File.read(path)
+              file = File.read(path)
 
-              matches = Jekyll::Cover::Matches.new(post_file)
+              matches = Jekyll::Cover::Matches.new(file)
 
               folder_handler = Jekyll::Cover::FolderHandler.new(site, matches).find_or_initialize_folder
 
-              image = Jekyll::Cover::CoverImage.new(folder_handler, matches, post_file, path).create
+              image = Jekyll::Cover::CoverImage.new(folder_handler, matches, file, path).create
               image.add_slug_to_file!
             end
           end

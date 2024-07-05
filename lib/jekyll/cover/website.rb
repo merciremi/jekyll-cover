@@ -7,23 +7,19 @@ module Jekyll
         build
       end
 
-      def build
-        @built ||= false
-
-        Jekyll::Commands::Build.process({}) && @built = true
-
-        site
-      end
-
       def site
         build unless @built
 
-        @site ||= Jekyll.sites.first
+        @site = Jekyll.sites.first
       end
 
-      # def posts
-      #   @posts ||= site.posts.docs
-      # end
+      private
+
+      def build
+        @built = false
+
+        Jekyll::Commands::Build.process({}) && @built = true
+      end
     end
   end
 end

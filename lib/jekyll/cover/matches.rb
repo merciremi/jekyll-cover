@@ -45,35 +45,32 @@ module Jekyll
       end
 
       def website
-        # Will remove opening and closing quotes, but not those in the website
         @website ||= @matches.website
       end
 
       def mastodon
-        # Will remove opening and closing quotes, but not those in the mastodon
         @mastodon ||= @matches.mastodon
       end
 
       def avatar
-        # Will remove opening and closing quotes, but not those in the avatar
         @avatar ||= @matches.avatar
       end
 
       def category
-        # Will remove opening and closing quotes, but not those in the category
         @category ||= @matches.category
       end
 
       def date
-        @date ||= matches.date
+        # Will handle date of these formats: 2024-06-01 and 01/06/2024
+        @date ||= Time.parse(matches.date).strftime('%Y-%m-%d')
       end
 
       def year
-        matches.date.split('-')[0]
+        @year ||= matches.date.split('-')[0]
       end
 
       def month
-        matches.date.split('-')[1]
+        @month ||= matches.date.split('-')[1]
       end
     end
   end

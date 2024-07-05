@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'pry-byebug'
+
 module Jekyll
   module Cover
     class FolderHandler
