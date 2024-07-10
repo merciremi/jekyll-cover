@@ -1,6 +1,6 @@
 # Jekyll::Cover
 
-👋 Howdy! Welcome to the `v 0.1.0` of `Jekyll::Cover`, a custom command to build `og:image` for new posts through the command line.
+👋 Howdy! Welcome to the `v 0.2.0` of `Jekyll::Cover`, a custom command to build `og:image` for new posts through the command line.
 
 ## Why?
 
@@ -23,11 +23,20 @@ This gem does a few things:
 - build the folder structure if need be to store the image,
 - add the path of the new image to the post.
 
-## Disclaimer
+## Disclaimers
 
-⚠️ I built this gem is for my personal use and on my personal time, hence it's **very crude, untested**, and **only works for the quirks of my own website**. 
+⚠️ I built this gem is for my personal use and on my personal time, hence it's **very crude, untested**, and **only works for the quirks of my own website**.
 
 I'll probably make it more usable for others in the future, but for now, it's mostly a personal proof of concept.
+
+**Update 10 Jul 2024: `V 0.2.0` is out!**
+
+`V 0.2.0` does exactly the same thing as v0.1.0, but better 😜: 
+- cleaner abstractions w/ cleaner APIs
+- better validations and return errors: Is your command valid? Do you already have an image linked to your post? etc...
+- less resource intensive for generating the image.
+
+Still a lot of rough edges, but I'm happy to move toward a more flexible command that'll eventually allow other people to use the gem off the shelf.
 
 ## Shout out
 
