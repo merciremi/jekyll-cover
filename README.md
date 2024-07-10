@@ -33,7 +33,7 @@ Want to use `Jekyll::Cover` with your Jekyll blog? Here how to do it:
 
 ```
 group :jekyll_plugins do
-  gem 'jekyll-cover', '0.2.0', path: 'your/local/path/from/root/to/jekyll-cover'
+  gem 'jekyll-cover', git: 'https://github.com/your_username/jekyll-cover.git', branch: 'main'
 end
 ```
 
