@@ -6,6 +6,17 @@ module Jekyll
   module Commands
     class Cover < Command
       class << self
+        # Documented by Remi - 10 Jul 2024
+        #
+        # This class is the main orchestrator responsible for:
+        # - checking the validity of the user input
+        # - exposing the necessary values from the post
+        # - exposing the necessary values from the website
+        # - building and exposing the cover image
+        #
+        # Thoughts: May be, the easiest way to make this gem usable for other people
+        # would be to have a CLI Q&A-thingy. People could setup their own variables.
+        # Example: "What is the path of your avatar?" "What is the url of your social media?"
         def init_with_program(prog)
           prog.command(:cover) do |c|
             c.syntax 'build_cover_image [options]'
@@ -13,18 +24,15 @@ module Jekyll
             c.option 'path', '-p PATH', '--path PATH', 'The path of the post'
 
             c.action do |_args, options|
-              path = Jekyll::Cover::PathValidator.new(options['path']).check_presence
+              path = options['path'] if Jekyll::Cover::Validator.new('path', options['path']).present?
 
-              site = Jekyll::Cover::Website.new.site
+              post = Jekyll::Cover::Post.new(path)
 
-              file = File.read(path)
+              website = Jekyll::Cover::Website.build
 
-              matches = Jekyll::Cover::Matches.new(file)
+              image = Jekyll::Cover::CoverImage.new(website, post).create
 
-              folder_handler = Jekyll::Cover::FolderHandler.new(site, matches).find_or_initialize_folder
-
-              image = Jekyll::Cover::CoverImage.new(folder_handler, matches, file, path).create
-              image.add_slug_to_file!
+              post.add_cover_image_path_to_front_matter(image.relative_path)
             end
           end
         end

@@ -1,16 +1,20 @@
 # frozen_string_literal: true
 
 require_relative 'cover/version'
-require_relative 'cover/path_validator'
+require_relative 'cover/validator'
 require_relative 'cover/website'
-require_relative 'cover/matches'
-require_relative 'cover/folder_handler'
+require_relative 'cover/front_matter'
 require_relative 'cover/cover_image'
+require_relative 'cover/post'
+
+require 'pry-byebug'
 
 module Jekyll
   module Cover
     class Error < StandardError; end
-    # Your code goes here...
+    class ValidationError < Error; end
+    class FileDoesNotExistError < Error; end
+    class CoverImageAlreadySetError < Error; end
   end
 end
 
